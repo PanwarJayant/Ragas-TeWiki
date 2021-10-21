@@ -76,7 +76,7 @@
 '''{{regional_name}}''' రాగము [[కర్ణాటక సంగీతం]]లో {{melam_num if melam_num is not none else janaka_melam}}వ [[మేళకర్త రాగము]]{{['', janaka, 'జన్యము']|join(' ')|string if janaka is not none}}. {{['దీనిని', alternates|join(', ')|string, 'అని కూడా అంటారు.']|join(' ')|string if alternates|length > 0}}{{['ఈ రాగం', chakra, 'చక్రానికి చెందినది, ఇందులో సప్త స్వరాలు ఉంటాయి [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra is not none}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
 
 
-==రాగ లక్షణాలు==
+==ट्यून विशेषताएंు==
 {{ get_raga_img(img_paths) }}
 
 * आरोहण : {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
@@ -84,7 +84,7 @@
 
 ఈ రాగం ఆరోహణంలో {{aro_swaras|join(', ')}} [[స్వరాలు]], అవరోహణంలో {{ava_swaras|join(', ')}} [[స్వరాలు]] ఉంటాయి.
 
-==రచనలు==
+==రచనలు(काम करता है)==
 {%- if kritis|length > 0 -%}
 {{['\n', 'इस धुन में कार्यों की एक आंशिक सूची [https://github.com/ssrihari/ragavardhini/blob/master/ragas/kritis.psv]', '\n']|join|string}}
 {%- for kriti in kritis -%}
