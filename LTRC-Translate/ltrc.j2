@@ -2,23 +2,22 @@
 {{'{{Infobox ragam'}}
 	| name          	= {{regional_name}}
 	| synonym	    	= {{alternates|join(', ') if alternates}}
-	| mela          	= {{melam_num if melam_num is not none}}
-	| chakra        	= {{chakra if chakra is not none}}
-	| janaka        	= {{janya_of if janya_of is not none}}
-	| type          	= {{category if category is not none}}
+	| mela          	= {{melam_num if melam_num != "none"}}
+	| chakra        	= {{chakra if chakra != "none"}}
+	| janaka        	= {{janya_of if janya_of != "none"}}
 	| arohanam      	= {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
 	| avarohanam    	= {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
 	| jeeva         	=
 	| chhaya        	=
 	| nyasa         	=
 	| vishesha      	= 
-	| equivalent  		= {{hind|join(', ') if hind is not none}}
+	| equivalent  		= {{hind|join(', ') if hind != "none"}}
 {{'}}'}}
 {{'{{कर्नाटक संगीत राग}}'}}
 {%- endmacro -%}
 {%- macro get_cat_sent(category) -%}
 {#- This macro prints information about raga's category -#}
-	{%- if category is not none -%}
+	{%- if category != "none" -%}
 		{%- if category == 'స్వరాంతర' -%}
 			{{ ' इस राग में चार स्वर होने के कारण इसे अंतर्जातीय राग कहते हैं ।' }}
 		{%- elif category == 'ఔడవ' -%}
@@ -64,25 +63,16 @@
 		{%- endif -%}	
 	{%- endif -%}	
 {%- endmacro -%}
-{%- macro get_raga_img(img_paths) -%}
-	{%- if img_paths|length is eq 2 -%}
-	[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' चढ़ाई C पर बौछार के साथ]]
-	[[Image:{{img_paths[1]}}|thumb|right|316px|''{{regional_name}}'' उतरना C पर बौछार के साथ]]
-	{%- else -%}
-		[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' C पर बौछार के साथ]]
-	{%- endif -%}
-{%- endmacro -%}
 {{ infobox(regional_name, alternates, melam_num, chakra, janya_of, category, aro_seq, ava_seq, hind) }}
-'''{{regional_name}}''' राग [[कर्नाटक संगीत]]में {{melam_num if melam_num is not none else janaka_melam}}वें [[मेला राग]]{{['', janaka, 'जन्य']|join(' ')|string if janaka is not none}}. {{['इस', alternates|join(', ')|string, 'भी कहा जाता है ।']|join(' ')|string if alternates|length > 0}}{{['यह राग', chakra, 'चक्र का है जिसमें सप्त स्वर [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra is not none}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
+'''{{regional_name}}''' राग [[कर्नाटक संगीत]]में {{melam_num if melam_num != "none" else janaka_melam if janaka_melam!="none"}}वें [[मेला राग]]{{['', janaka, 'जन्य']|join(' ')|string if janaka != "none"}}.{{['इस', alternates|join(', ')|string, 'भी कहा जाता है ।']|join(' ')|string if alternates|length > 0}}{{['यह राग', chakra, 'चक्र का है जिसमें सप्त स्वर [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra != "none"}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
 
 
 ==राग गुण==
-{{ get_raga_img(img_paths) }}
 
 * आरोही : {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
 * उतरना : {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
 
-इस राग के आरोह में {{aro_swaras|join(', ')}} [[आवाजें]], rajeevanabmukherjeev {{ava_swaras|join(', ')}} [[आवाजें]] होंगे.
+इस राग के आरोह में {{aro_swaras|join(', ')}} [[आवाजें]], {{ava_swaras|join(', ')}} [[आवाजें]] होंगे.
 
 ==योगदान==
 {%- if kritis|length > 0 -%}
@@ -138,4 +128,3 @@
 {{['\n', '\n']|join|string}}
 [[श्रेणी : तेवी को कर्नाटक संगीत राग]]
 [[श्रेणी : कर्नाटक संगीत राग]]
-{{['[[ramanyइन्हें:', category, ' राग]]']|join('')|string if category is not none}}

@@ -66,25 +66,25 @@
 {%- endmacro -%}
 {%- macro get_raga_img(img_paths) -%}
 	{%- if img_paths|length is eq 2 -%}
-	[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' आरोही C शाडम पर]]
-	[[Image:{{img_paths[1]}}|thumb|right|316px|''{{regional_name}}'' उतार C  शाडम पर]]
+	[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' ఆరోహణ C వద్ద షడ్జమంతో]]
+	[[Image:{{img_paths[1]}}|thumb|right|316px|''{{regional_name}}'' అవరోహణ C వద్ద షడ్జమంతో]]
 	{%- else -%}
-		[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' C शाडम पर]]
+		[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' C వద్ద షడ్జమంతో]]
 	{%- endif -%}
 {%- endmacro -%}
 {{ infobox(regional_name, alternates, melam_num, chakra, janya_of, category, aro_seq, ava_seq, hind) }}
-'''{{regional_name}}''' राग [[कर्नाटिक संगीत]]में {{melam_num if melam_num is not none else janaka_melam}}వ [[मेलाकार्ता ̈रग]]{{['', janaka, 'वंश']|join(' ')|string if janaka is not none}}. {{['यहन', alternates|join(', ')|string, 'इसे भी जाना जाता है।']|join(' ')|string if alternates|length > 0}}{{['यह रागం', chakra, ' चक्र है, जो सात आवाजें शामिल है के अंतर्गत आता है [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra is not none}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
+'''{{regional_name}}''' రాగము [[కర్ణాటక సంగీతం]]లో {{melam_num if melam_num is not none else janaka_melam}}వ [[మేళకర్త రాగము]]{{['', janaka, 'జన్యము']|join(' ')|string if janaka is not none}}. {{['దీనిని', alternates|join(', ')|string, 'అని కూడా అంటారు.']|join(' ')|string if alternates|length > 0}}{{['ఈ రాగం', chakra, 'చక్రానికి చెందినది, ఇందులో సప్త స్వరాలు ఉంటాయి [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra is not none}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
 
 
-==राग विशेषताएं==
+==రాగ లక్షణాలు==
 {{ get_raga_img(img_paths) }}
 
-* आरोही: {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
-* उतार: {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
+* ఆరోహణ (आरोही): {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
+* అవరోహణ ( उतार): {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
 
-इस राग के आरोही में {{aro_swaras|join(', ')}} [[आवाजు]], उतार  में {{ava_swaras|join(', ')}} [[आवाजు]] होगा.
+इस राग के आरोही में {{aro_swaras|join(', ')}} [[స్వరాలు]], उतार  में {{ava_swaras|join(', ')}} [[స్వరాలు]] होगा.
 
-==कार्य==
+==రచనలు==
 {%- if kritis|length > 0 -%}
 {{['\n', 'इस ̈रग में कार्यों की आंशिक सूची [https://github.com/ssrihari/ragavardhini/blob/master/ragas/kritis.psv]', '\n']|join|string}}
 {%- for kriti in kritis -%}
@@ -99,7 +99,7 @@
 {%- if varnams|length > 0 -%}
 {{['\n', 'इस धुन में रंग [http://www.carnatica.in/kriti/varnamlist.htm].', '\n']|join|string}}
 {%- for varnam in varnams -%}
-	* {{[varnam[0], ' - ', varnam[1], ' - ', varnam[2], ' ताला', '\n']|join|string}}
+	* {{[varnam[0], ' - ', varnam[1], ' - ', varnam[2], ' తాళం', '\n']|join|string}}
 {%- endfor -%}
 {%- endif -%}
 
@@ -113,7 +113,7 @@
 
 {{['\n', '\n']|join|string}}
 
-==ऐसे ही रागు==
+==పోలిన రాగాలు==
 {%- if same_aro|length > 0 -%}
 {{['\n', 'यह राग आरोहण के तहत दिए गए रागों के आरोहण के समान है।', '\n']|join|string}}
 {%- for raag in same_aro -%}
@@ -136,6 +136,6 @@
 {%- endif -%}
 
 {{['\n', '\n']|join|string}}
-[[వర్గం:तेविकी कार्नाटिक संगीत धुनों]]
-[[వర్గం:कार्नाटिक संगीत धुनों]]
-{{['[[వర్గం:', category, ' रागों]]']|join('')|string if category is not none}}
+[[వర్గం:తెవికి కర్ణాటక సంగీత రాగాలు]]
+[[వర్గం:కర్ణాటక సంగీత రాగాలు]]
+{{['[[వర్గం:', category, ' రాగాలు]]']|join('')|string if category is not none}}
