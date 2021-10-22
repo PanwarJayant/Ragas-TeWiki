@@ -2,23 +2,22 @@
 {{'{{Infobox ragam'}}
 	| name          	= {{regional_name}}
 	| synonym	    	= {{alternates|join(', ') if alternates}}
-	| mela          	= {{melam_num if melam_num is not none}}
-	| chakra        	= {{chakra if chakra is not none}}
-	| janaka        	= {{janya_of if janya_of is not none}}
-	| type          	= {{category if category is not none}}
+	| mela          	= {{melam_num if melam_num != "none"}}
+	| chakra        	= {{chakra if chakra != "none"}}
+	| janaka        	= {{janya_of if janya_of != "none"}}
 	| arohanam      	= {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
 	| avarohanam    	= {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
 	| jeeva         	=
 	| chhaya        	=
 	| nyasa         	=
 	| vishesha      	= 
-	| equivalent  		= {{hind|join(', ') if hind is not none}}
+	| equivalent  		= {{hind|join(', ') if hind != "none"}}
 {{'}}'}}
 {{'{{कार्नाटिक संगीत धुनों}}'}}
 {%- endmacro -%}
 {%- macro get_cat_sent(category) -%}
 {#- This macro prints information about raga's category -#}
-	{%- if category is not none -%}
+	{%- if category != "none" -%}
 		{%- if category == 'స్వరాంతర' -%}
 			{{ ' चूंकि इस राग में चार आवाजें हैं, इसलिए इसे स्वर्णकार राग कहते हैं।' }}
 		{%- elif category == 'ఔడవ' -%}
@@ -40,11 +39,11 @@
 		{%- elif category == 'ఔడవ-సంపూర్ణ' -%}
 			{{ ' इस राग को औदावा-संपूर्ण राग कहा जाता है क्योंकि इसमें आरोही में पांच आवाजें और लग्न में सात आवाजें होती हैं।' }}
 		{%- elif category == 'శాడవ-స్వరాంతర' -%}
-			{{ 'इस राग को शादावा-औद्वा राग इसलिए कहा जाता है क्योंकि उतरते-उतरते में आरोही और मुखर आवाजों में छह आवाजें होती हैं। }}
+			{{ ' इस राग के आरोह में छ : स्वरों के अवरोह में निहित स्वरों के कारण इसे षड्व औडव राग कहते हैं ।' }}
 		{%- elif category == 'శాడవ-ఔడవ' -%}
-			{{ ' इस राग को शादावा-औद्वा राग कहा जाता है क्योंकि इसमें आरोही में छह आवाजें और उतरते में पांच आवाजें होती हैं। }}		
+			{{ ' इस राग के आरोह में छह स्वर अवरोह में पांच स्वर होने के कारण इसे षड्व औडव राग कहते हैं ।' }}		
 		{%- elif category == 'శాడవ-సంపూర్ణ' -%}
-			{{ ' इस राग को छाया-संपूर्ण राग कहा जाता है क्योंकि इसमें आरोही में छह आवाजें और लग्न में सात आवाजें होती हैं।' }}
+			{{ ' इस राग के आरोह में छह स्वर अवरोह में सप्त स्वर होने के कारण इसे षड्व निरपेक्ष राग कहते हैं ।' }}
 		{%- elif category == 'సంపూర్ణ-స్వరాంతర' -%}
 			{{ '  इस राग को पूर्ण मुखर राग कहा जाता है क्योंकि आरोही में सात आवाजें होती हैं और उतरते चार आवाजें।' }}
 		{%- elif category == 'సంపూర్ణ-ఔడవ' -%}
@@ -64,27 +63,18 @@
 		{%- endif -%}	
 	{%- endif -%}	
 {%- endmacro -%}
-{%- macro get_raga_img(img_paths) -%}
-	{%- if img_paths|length is eq 2 -%}
-	[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' ఆరోహణ C వద్ద షడ్జమంతో]]
-	[[Image:{{img_paths[1]}}|thumb|right|316px|''{{regional_name}}'' అవరోహణ C వద్ద షడ్జమంతో]]
-	{%- else -%}
-		[[Image:{{img_paths[0]}}|thumb|right|316px|''{{regional_name}}'' C వద్ద షడ్జమంతో]]
-	{%- endif -%}
-{%- endmacro -%}
 {{ infobox(regional_name, alternates, melam_num, chakra, janya_of, category, aro_seq, ava_seq, hind) }}
-'''{{regional_name}}''' రాగము [[కర్ణాటక సంగీతం]]లో {{melam_num if melam_num is not none else janaka_melam}}వ [[మేళకర్త రాగము]]{{['', janaka, 'జన్యము']|join(' ')|string if janaka is not none}}. {{['దీనిని', alternates|join(', ')|string, 'అని కూడా అంటారు.']|join(' ')|string if alternates|length > 0}}{{['ఈ రాగం', chakra, 'చక్రానికి చెందినది, ఇందులో సప్త స్వరాలు ఉంటాయి [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra is not none}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
+'''{{regional_name}}''' राग [[कर्नाटक संगीत]]में {{melam_num if melam_num != "none" else janaka_melam if janaka_melam!="none"}}वें [[मेला राग]]{{['', janaka, 'जन्य']|join(' ')|string if janaka != "none"}}.{{['इस', alternates|join(', ')|string, 'भी कहा जाता है ।']|join(' ')|string if alternates|length > 0}}{{['यह राग', chakra, 'चक्र का है जिसमें सप्त स्वर [https://en.wikipedia.org/wiki/Melakarta].']|join(' ')|string if chakra != "none"}}{{ get_hindustani_sent(hind) }}{{ get_cat_sent(category) }}
 
 
-==రాగ లక్షణాలు==
-{{ get_raga_img(img_paths) }}
+==राग गुण==
 
-* ఆరోహణ (आरोही): {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
-* అవరోహణ ( उतार): {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
+* आरोही: {{ ['{{svaraC|', aro_seq, '}}']|join|string }} 
+* उतार: {{ ['{{svaraC|', ava_seq, '}}']|join|string }}
 
 इस राग के आरोही में {{aro_swaras|join(', ')}} [[స్వరాలు]], उतार  में {{ava_swaras|join(', ')}} [[స్వరాలు]] होगा.
 
-==రచనలు==
+==योगदान==
 {%- if kritis|length > 0 -%}
 {{['\n', 'इस ̈रग में कार्यों की आंशिक सूची [https://github.com/ssrihari/ragavardhini/blob/master/ragas/kritis.psv]', '\n']|join|string}}
 {%- for kriti in kritis -%}
@@ -113,7 +103,7 @@
 
 {{['\n', '\n']|join|string}}
 
-==పోలిన రాగాలు==
+==समान राग==
 {%- if same_aro|length > 0 -%}
 {{['\n', 'यह राग आरोहण के तहत दिए गए रागों के आरोहण के समान है।', '\n']|join|string}}
 {%- for raag in same_aro -%}
@@ -136,6 +126,5 @@
 {%- endif -%}
 
 {{['\n', '\n']|join|string}}
-[[వర్గం:తెవికి కర్ణాటక సంగీత రాగాలు]]
-[[వర్గం:కర్ణాటక సంగీత రాగాలు]]
-{{['[[వర్గం:', category, ' రాగాలు]]']|join('')|string if category is not none}}
+[[श्रेणी : तेवी को कर्नाटक संगीत राग]]
+[[श्रेणी : कर्नाटक संगीत राग]]
