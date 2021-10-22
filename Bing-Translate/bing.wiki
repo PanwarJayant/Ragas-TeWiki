@@ -138,4 +138,4 @@
 {{['\n', '\n']|join|string}}
 [[వర్గం:तेविकी कार्नाटिक संगीत धुनों]]
 [[వర్గం:कार्नाटिक संगीत धुनों]]
-{{['[[వర్గం:', category, ' రాగాలు]]']|join('')|string if category is not none}}
+{{['[[వర్గం:', category, ' रागों]]']|join('')|string if category is not none}}
