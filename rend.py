@@ -3,6 +3,8 @@ import pandas as pd
 import ast
 from jinja2 import Environment, FileSystemLoader
 
+from genXML import tewiki, writePage
+
 
 def getData(row):
     data = {
@@ -38,17 +40,24 @@ def main():
     env = Environment(loader=file_loader)
     template = env.get_template('Bing-Translate/bing.j2')
     moviesDF = pd.read_pickle(open('./123.pkl', 'rb'))
-    # row= moviesDF.iloc[5]
-    # text = template.render(getData(row))
-    # print(text)
+    
+    fobj = open('ragas_google.xml', 'w')
+    fobj.write(tewiki+'\n')
+
+    initial_page_id = 700000
+
     for i in range(0, 50):
         row = moviesDF.iloc[i]
         text = template.render(getData(row))
         stri = "./Bing-Translate/articles/" + str(i) + ".txt"
-        file = open(stri, "w")
-        file.write(text)
-        file.close
+        writePage(initial_page_id,row[0],text,fobj)
+        initial_page_id += 1
+        # file = open(stri, "w")
+        # file.write(text)
+        # file.close
 
+    fobj.write('</mediawiki>')
+    fobj.close()
 
 if __name__ == '__main__':
     main()
